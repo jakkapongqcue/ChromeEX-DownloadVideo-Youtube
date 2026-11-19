@@ -1,0 +1,9 @@
+﻿{
+    "name":  "com.ytdl.host",
+    "description":  "Private Hardened Native Messaging Host for YouTube Video Downloader",
+    "path":  "C:\\Users\\jakkapongpra\\Desktop\\Customize Code\\ChromeEX-Download-Youtube\\native-host\\host.bat",
+    "type":  "stdio",
+    "allowed_origins":  [
+                            "chrome-extension://odglcnnipefendfpdekkfikfllnolonf/"
+                        ]
+}

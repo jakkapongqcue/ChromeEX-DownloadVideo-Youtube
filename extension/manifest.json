@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Downloader (Private Local)",
+  "version": "1.0.0",
+  "description": "ดาวน์โหลดวิดีโอและเสียงจาก YouTube แบบส่วนตัว ถอดรหัสในเครื่อง 100% ผ่าน Native Messaging",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5SdKq9ksb4gjQMocPjs8394Va5eEPvLhomFqv+KF27S+pPn8oJ2hc6/5BNDB7ph3en9SeA7eJMoHu6mCS2R82ZDcnE9Zk3YwM3Z7ucdQiFax9bOesIqD9Jv8sfHcfu3XiLqmCy7pLKG/1EVt/N84hLenv03lNnfRBNeU/rUWegh3nDPEyZkaYX5UtJ1VLx2fmqgKYWNgjhOPq1b0QyyFWtri/9KhWqqnp20vgWFRTvcn+UsQKCrFIGsxm1UXDfOzD2Jp5ZxyNF2Y5AFsEKKKypRPxgVauaF3HfUVfbNd7jEJYs2mb47NrRbdETXlzt+9zg5ckgQ8MormfzUFwDireQIDAQAB",
+  "permissions": [
+    "nativeMessaging",
+    "storage",
+    "notifications",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "ดาวน์โหลดวิดีโอ YouTube",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "content/content.js"
+      ],
+      "css": [
+        "content/content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

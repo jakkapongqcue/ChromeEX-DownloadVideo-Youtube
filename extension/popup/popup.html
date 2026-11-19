@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>YouTube Downloader (Local)</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-title">
+      <span class="logo-dot"></span>
+      <h1>YouTube Downloader</h1>
+    </div>
+    <span id="hostBadge" class="badge badge-checking">กำลังตรวจสอบ...</span>
+  </header>
+
+  <!-- Host status error banner if native host is not installed -->
+  <section id="setupBanner" class="banner banner-error hidden">
+    <div class="banner-title">ยังไม่ได้เชื่อมต่อ Native Host</div>
+    <p id="setupMessage" class="banner-desc">
+      กรุณารันสคริปต์ <code>installer\install.ps1</code> เพื่อติดตั้ง yt-dlp, ffmpeg และลงทะเบียน Native Messaging
+    </p>
+  </section>
+
+  <!-- Current video card -->
+  <section id="videoSection" class="card">
+    <div id="notYoutubeState" class="empty-state hidden">
+      เปิดหน้าวิดีโอ YouTube (<code>youtube.com/watch?v=...</code> หรือ Shorts) เพื่อดาวน์โหลด
+    </div>
+
+    <div id="videoLoadedState" class="hidden">
+      <div class="video-preview">
+        <img id="videoThumb" class="thumb" src="" alt="Thumbnail" />
+        <div class="video-meta">
+          <div id="videoTitle" class="video-title">กำลังโหลดข้อมูลวิดีโอ...</div>
+          <div id="videoSub" class="video-sub"></div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="control-row">
+          <label for="modeSelect">รูปแบบไฟล์</label>
+          <select id="modeSelect">
+            <option value="mp4">วิดีโอ MP4 (ภาพ + เสียง)</option>
+            <option value="mp3">เสียงอย่างเดียว MP3 (คุณภาพสูงสุด)</option>
+          </select>
+        </div>
+
+        <div id="qualityRow" class="control-row">
+          <label for="qualitySelect">ความละเอียด</label>
+          <select id="qualitySelect">
+            <option value="2160">4K (2160p)</option>
+            <option value="1440">2K (1440p)</option>
+            <option value="1080" selected>Full HD (1080p)</option>
+            <option value="720">HD (720p)</option>
+            <option value="480">SD (480p)</option>
+            <option value="360">360p</option>
+          </select>
+        </div>
+
+        <button id="downloadBtn" class="btn btn-primary" disabled>
+          ⬇ ดาวน์โหลดลงเครื่อง
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Active & recent download queue -->
+  <section class="queue-section">
+    <div class="queue-header">
+      <h2>รายการดาวน์โหลด</h2>
+      <div class="queue-actions">
+        <button id="openFolderBtn" class="btn-link" title="เปิดโฟลเดอร์ Downloads\YouTube">เปิดโฟลเดอร์</button>
+        <button id="clearJobsBtn" class="btn-link">ล้างรายการเสร็จแล้ว</button>
+      </div>
+    </div>
+    <div id="jobsList" class="jobs-list">
+      <div class="empty-queue">ยังไม่มีรายการดาวน์โหลด</div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span id="versionText">ถอดรหัสในเครื่อง 100%</span>
+    <button id="updateYtdlpBtn" class="btn-link">อัปเดต yt-dlp</button>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

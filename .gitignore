@@ -1,0 +1,6 @@
+# Ignore downloaded external binaries (over 100MB GitHub limit; fetched by installer/install.ps1)
+native-host/bin/*.exe
+native-host/bin/*.zip
+native-host/bin/*.sha256
+native-host/bin/SHA2-256SUMS
+native-host/bin/ffmpeg_extract/

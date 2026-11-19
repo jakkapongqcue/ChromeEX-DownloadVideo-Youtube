@@ -1,0 +1,62 @@
+.ytdl-inline-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.ytdl-inline-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #ff0033;
+  color: #ffffff;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.ytdl-inline-btn:hover {
+  background: #d9002b;
+}
+
+.ytdl-inline-menu {
+  position: absolute;
+  top: 42px;
+  left: 0;
+  z-index: 9999;
+  min-width: 220px;
+  background: #212121;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ytdl-inline-menu.hidden {
+  display: none !important;
+}
+
+.ytdl-menu-item {
+  background: transparent;
+  border: none;
+  color: #f1f1f1;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.ytdl-menu-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
